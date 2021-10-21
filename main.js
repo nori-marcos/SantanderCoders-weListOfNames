@@ -1,26 +1,29 @@
 const nameInput = document.querySelector("input");
 
+function addName() {
+  const ul = document.querySelector("ul");
+  const span = document.createElement("span");
+  const li = document.createElement("li");
+  const name = nameInput.value;
+  const newRemoveButton = document.createElement("button");
+
+  newRemoveButton.innerText = "Remove";
+
+  span.append(name, newRemoveButton);
+
+  li.appendChild(span);
+
+  ul.appendChild(li);
+
+  nameInput.value = "";
+}
+
 const addNameButton = document
   .querySelector("button")
   .addEventListener("click", addName);
 
-nameInput.keyup(function (event) {
-  if (event.keyCode === 13) {
-    addNameButton.click(addName);
+nameInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    addName();
   }
 });
-
-function addName() {
-  const newListItem = document.createElement("li");
-
-  const newName = nameInput.value;
-
-  const newRemoveButton = document.createElement("button");
-  newRemoveButton.innerText = "Remove";
-
-  newListItem.append(newName, newRemoveButton);
-
-  document.querySelector("ul").appendChild(newListItem);
-
-  nameInput.value = "";
-}
