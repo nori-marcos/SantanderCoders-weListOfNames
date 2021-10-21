@@ -5,17 +5,26 @@ function addName() {
   const span = document.createElement("span");
   const li = document.createElement("li");
   const name = nameInput.value;
-  const newRemoveButton = document.createElement("button");
 
-  newRemoveButton.innerText = "Remove";
+  const removeNameButton = document.createElement("button");
+  removeNameButton.innerText = "Remove";
 
-  span.append(name, newRemoveButton);
+  removeNameButton.addEventListener("click", function () {
+    ul.removeChild(li);
+  });
+
+  span.append(name, removeNameButton);
 
   li.appendChild(span);
 
   ul.appendChild(li);
 
   nameInput.value = "";
+}
+
+function removeName() {
+  const ul = document.querySelector("ul");
+  ul.removeChild("li");
 }
 
 const addNameButton = document
