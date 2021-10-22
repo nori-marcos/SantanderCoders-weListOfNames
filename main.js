@@ -1,6 +1,7 @@
 const nameInput = document.querySelector("input");
 
 function addName() {
+  // event.preventDefault;
   const ul = document.querySelector("ul");
   const span = document.createElement("span");
   const li = document.createElement("li");
@@ -33,6 +34,7 @@ const addNameButton = document
 
 nameInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
+    event.preventDefault;
     addName();
   }
 });
