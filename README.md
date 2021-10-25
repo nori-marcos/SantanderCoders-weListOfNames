@@ -3,3 +3,8 @@ This project was created for the coding challenge proposed by Santander Coders P
 
 Link:
 https://nori-marcos.github.io/SantanderCoders-webListOfNames.github.io/
+
+## Technologies Used
+- HTML
+- JavaScript
+- Bootstrap
