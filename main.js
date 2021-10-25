@@ -1,22 +1,31 @@
 const nameInput = document.querySelector("input");
 
 function addName() {
-  // event.preventDefault;
   const ul = document.querySelector("ul");
-  const span = document.createElement("span");
+
   const li = document.createElement("li");
+  li.classList.add(
+    "list-group-item",
+    "d-flex",
+    "justify-content-between",
+    "align-items-center"
+  );
+
   const name = nameInput.value;
 
   const removeNameButton = document.createElement("button");
   removeNameButton.innerText = "Remove";
+  removeNameButton.classList.add("btn", "btn-secondary", "btn-sm");
 
   removeNameButton.addEventListener("click", function () {
     ul.removeChild(li);
   });
 
-  span.append(name, removeNameButton);
-
-  li.appendChild(span);
+  if (name !== "") {
+    li.append(name, removeNameButton);
+  } else {
+    alert("Fill the name!");
+  }
 
   ul.appendChild(li);
 
@@ -34,7 +43,7 @@ const addNameButton = document
 
 nameInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    event.preventDefault;
+    event.preventDefault();
     addName();
   }
 });
